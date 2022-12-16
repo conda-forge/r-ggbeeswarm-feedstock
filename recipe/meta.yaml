@@ -1,4 +1,4 @@
-{% set version = '0.6.0' %}
+{% set version = "0.7.1" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ggbeeswarm_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ggbeeswarm/ggbeeswarm_{{ version }}.tar.gz
-  sha256: bbac8552f67ff1945180fbcda83f7f1c47908f27ba4e84921a39c45d6e123333
+  sha256: f41550335149bc2122fed0dd280d980cecd02ace79e042d5e03c1f102200ac92
 
 build:
   noarch: generic
-  number: 1004
+  number: 0
 
   rpaths:
     - lib/R/lib/
@@ -43,11 +43,9 @@ test:
 about:
   home: https://github.com/eclarke/ggbeeswarm
   license: GPL (>= 2)
-  summary: Provides two methods of plotting categorical scatter plots such that the arrangement
-    of points within a category reflects the density of data at that region, and avoids
-    over-plotting.
+  summary: Provides two methods of plotting categorical scatter plots such that the arrangement of points within a category reflects the density of data at that region, and avoids over-plotting.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
