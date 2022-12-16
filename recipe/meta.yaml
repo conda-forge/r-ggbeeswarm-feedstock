@@ -8,42 +8,47 @@ package:
 
 source:
   url:
-    - https://cran.r-project.org/src/contrib/ggbeeswarm_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/ggbeeswarm/ggbeeswarm_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/ggbeeswarm_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/ggbeeswarm/ggbeeswarm_{{ version }}.tar.gz
   sha256: f41550335149bc2122fed0dd280d980cecd02ace79e042d5e03c1f102200ac92
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
-
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+  host:
     - r-base
     - r-beeswarm
-    - r-ggplot2 >=2.0
+    - r-ggplot2 >=3.3.0
+    - r-lifecycle
     - r-vipor
-
   run:
     - r-base
     - r-beeswarm
-    - r-ggplot2 >=2.0
+    - r-ggplot2 >=3.3.0
+    - r-lifecycle
     - r-vipor
 
 test:
   commands:
-    - $R -e "library('ggbeeswarm')"  # [not win]
+    - $R -e "library('ggbeeswarm')"           # [not win]
     - "\"%R%\" -e \"library('ggbeeswarm')\""  # [win]
 
 about:
   home: https://github.com/eclarke/ggbeeswarm
-  license: GPL (>= 2)
+  license: GPL-3.0-or-later
   summary: Provides two methods of plotting categorical scatter plots such that the arrangement of points within a category reflects the density of data at that region, and avoids over-plotting.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
