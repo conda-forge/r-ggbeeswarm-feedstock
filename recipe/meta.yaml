@@ -1,4 +1,4 @@
-{% set version = "0.7.1" %}
+{% set version = "0.7.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggbeeswarm_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggbeeswarm/ggbeeswarm_{{ version }}.tar.gz
-  sha256: f41550335149bc2122fed0dd280d980cecd02ace79e042d5e03c1f102200ac92
+  sha256: fd7ca265bb892dde514d5f8d6a853fb8b32d7a673b05e9c8b50544a523299ce5
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:

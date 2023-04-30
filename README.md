@@ -1,11 +1,11 @@
-About r-ggbeeswarm
-==================
+About r-ggbeeswarm-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggbeeswarm-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/eclarke/ggbeeswarm
 
 Package license: GPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggbeeswarm-feedstock/blob/main/LICENSE.txt)
 
 Summary: Provides two methods of plotting categorical scatter plots such that the arrangement of points within a category reflects the density of data at that region, and avoids over-plotting.
 
